@@ -5,26 +5,30 @@ import Vencedor from './components/vencedor';
 import './App.css';
 
 function App() {
-  const [ lista, setLista ] = useState<Array<any>>([undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]) 
+  const [ lista, setLista ] = useState<Array<Array<number>>>([[0,0,0],[0,0,0],[0,0,0]]) 
   const [ jogada, setJogada ] = useState(true)
   const [ bloquear, setBloquear] = useState(false)
-  const reset = [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+  const reset = [[0,0,0],[0,0,0],[0,0,0]]
 
   const vencedor = ()=>{
     const ganhador = Vencedor(lista)
+    console.log(ganhador);
     
-    if (ganhador === 'XIS' || ganhador === 'CIRCULO') {
-      console.log(`O vencedo é ${ganhador}`);
-      setBloquear(true)
-    }
+    // if (ganhador === 'XIS' || ganhador === 'CIRCULO') {
+    //   console.log(`O vencedo é ${ganhador}`);
+    //   setBloquear(true)
+    // }
   }
-  
+
   const clicked = (e: HTMLDivElement)=> {
-    const id = Number(e.getAttribute('id'))
-    if (!lista[id] && !bloquear){
-      lista[id] = jogada ? Xis() : Circulo()
+    const id = e.getAttribute('id')    
+    const i = Number(id?.charAt(0))
+    const j = Number(id?.substr(-1))
+    
+    if (lista[i][j] === 0 && !bloquear){
+      lista[i][j] = jogada ? 1 : 2
       setJogada(!jogada)
-      setLista([...lista])      
+      setLista([...lista])
       vencedor()
     }
   }
@@ -34,15 +38,18 @@ function App() {
     setBloquear(false)
     setJogada(true)
   }
+  console.log(lista);
   
   return (
     <div className="App">
       <div id='principal'>
-        {lista.map((e, i)=>{
-          return(
-            <div id={`${i}`} onClick={(event)=>{clicked(event.currentTarget)}} className='quadrados'>{e}</div>
-          )
-        })}
+        {
+          lista.map((e,i):any=>{
+            return e.map((E,I)=>{
+              return (<div id={`${i}:${I}`} onClick={(event)=>{clicked(event.currentTarget)}} className='quadrados'>{E === 1 ? <Xis/> : E === 2 ? <Circulo/> : undefined}</div>)
+            })
+          })
+        }
       </div>
       <button onClick={resetar}>Reiniciar</button>
     </div>
