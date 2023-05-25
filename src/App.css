@@ -1,0 +1,64 @@
+.App {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+} 
+
+#principal {
+  width: 606px;
+  height: 606px;
+  background-color: rgb(214, 214, 214);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.quadrados {
+  width: 200px;
+  height: 200px;
+  background-color: gray;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.quadrados:hover {
+  background-color: rgb(201, 201, 201);
+}
+
+button {
+  font-size: 30px;
+  padding: 10px;
+}
+
+.circulo {
+  width: 100px;
+  height: 100px;
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
+.xis {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.barraX{
+  width: 120px;
+  border: 2px solid black;
+  position: absolute;
+}
+
+.barraX1 {
+  transform: rotate(45deg);
+}
+
+.barraX2 {
+  transform: rotate(-45deg);
+}
