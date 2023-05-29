@@ -9,15 +9,14 @@ function App() {
   const [ jogada, setJogada ] = useState(true)
   const [ bloquear, setBloquear] = useState(false)
   const reset = [[0,0,0],[0,0,0],[0,0,0]]
-
+  
   const vencedor = ()=>{
     const ganhador = Vencedor(lista)
-    console.log(ganhador);
     
-    // if (ganhador === 'XIS' || ganhador === 'CIRCULO') {
-    //   console.log(`O vencedo é ${ganhador}`);
-    //   setBloquear(true)
-    // }
+    if (ganhador !== '') {
+      console.log(`O vencedo é ${ganhador}`);
+      setBloquear(true)
+    }
   }
 
   const clicked = (e: HTMLDivElement)=> {
@@ -26,7 +25,7 @@ function App() {
     const j = Number(id?.substr(-1))
     
     if (lista[i][j] === 0 && !bloquear){
-      lista[i][j] = jogada ? 1 : 2
+      lista[i][j] = jogada ? 1 : 4
       setJogada(!jogada)
       setLista([...lista])
       vencedor()
@@ -38,7 +37,6 @@ function App() {
     setBloquear(false)
     setJogada(true)
   }
-  console.log(lista);
   
   return (
     <div className="App">
@@ -46,7 +44,7 @@ function App() {
         {
           lista.map((e,i):any=>{
             return e.map((E,I)=>{
-              return (<div id={`${i}:${I}`} onClick={(event)=>{clicked(event.currentTarget)}} className='quadrados'>{E === 1 ? <Xis/> : E === 2 ? <Circulo/> : undefined}</div>)
+              return (<div id={`${i}:${I}`} onClick={(event)=>{clicked(event.currentTarget)}} className='quadrados'>{E === 1 ? <Xis/> : E === 4 ? <Circulo/> : undefined}</div>)
             })
           })
         }
