@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Xis from './components/xis';
 import Circulo from './components/circulo';
 import Vencedor from './components/vencedor';
+import Swal from 'sweetalert2'
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     
     if (ganhador !== '') {
       console.log(`O vencedo é ${ganhador}`);
+      Swal.fire(`O vencedo é ${ganhador}`)
       setBloquear(true)
     }
   }
