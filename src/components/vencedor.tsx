@@ -1,38 +1,37 @@
-// import React from "react";
-
-const casosDeVitoria = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
-
 const Vencedor = (lista:any) =>{
-  let c:Array<number> = []
-  let x:Array<number> = []
-  let v:string = ''
-  lista.map((e:any, i:number): void =>{if(e && e.props.className === 'circulo') c = [...c, i]})
-  lista.map((e:any, i:number): void =>{if(e && e.props.className === 'xis')  x = [...x, i]})
-
-  casosDeVitoria.map(eM =>{
-    const rc = c.reduce((a:number, e:number): any =>{
-      if (e === eM[0] || e === eM[1] || e === eM[2]){
-        return ++a
-      }
-      return a
-    }, 0)
-    
-    const rx = x.reduce((a:number, e:number): any =>{
-      if (e === eM[0] || e === eM[1] || e === eM[2]){
-        return ++a
-      }
-      return a
-    }, 0)
-
-    if (rc === 3) {
-      v = 'CIRCULO'
-    }
-    if (rx === 3){
-      v = 'XIS'
-    }
-  })
+  let soma: number = 0
+  let somaD: number = 0
+  let resultado = ''
   
-  if(v === 'XIS' || v === 'CIRCULO') return v
+  const percorre = (orientacao:string)=>{
+    for (let i=0; i<=2; i++){
+      for (let j=0; j<=2; j++){
+        if (orientacao === 'horizontal'){
+          soma = soma + lista[i][j]
+        } else{
+          soma = soma + lista[j][i]
+        }
+        if (soma === 3) {resultado = 'XIS'}
+        if (soma === 12) {resultado = 'CIRCULO'}
+      }
+      soma = 0
+      somaD = somaD + lista[i][i]
+      
+      if (somaD === 3) {resultado = 'XIS'}
+      if (somaD === 12) {resultado = 'CIRCULO'}
+    }
+    somaD = 0
+    somaD = lista[0][2] + lista[1][1] + lista[2][0]
+    
+    if (somaD === 3) {resultado = 'XIS'}
+    if (somaD === 12) {resultado = 'CIRCULO'}
+    somaD = 0
+  }
+  
+  percorre('vertical')
+
+  if (resultado === '') percorre('horizontal')
+  return resultado
 }
 
 export default Vencedor
