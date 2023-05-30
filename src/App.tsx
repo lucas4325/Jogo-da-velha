@@ -16,9 +16,9 @@ function App() {
     const ganhador = Vencedor(lista)
     
     if (ganhador !== '') {
-      console.log(`O vencedo é ${ganhador}`);
       Swal.fire(`O vencedo é ${ganhador}`)
-      
+      if (ganhador === 'XIS') setPlacar({...placar, xis : placar.xis + 1})
+      if (ganhador === 'CIRCULO') setPlacar({...placar, circulo : placar.circulo + 1})
       setBloquear(true)
     }
   }
@@ -45,12 +45,16 @@ function App() {
   return (
     <div className="App">
       <div id='placar'>
-        Placar
-        <div>
-          XIS: {placar.xis}<br />
-          CIRCULO: {placar.circulo}
+        <div id='placar1'>
+          Placar
+          <div>
+            XIS: {placar.xis}<br />
+            CIRCULO: {placar.circulo}
+          </div>
         </div>
+        <button onClick={()=>{setPlacar({xis:0, circulo: 0})}}>Resetar Placar</button>
       </div>
+      
 
       <div id='alinhar'>
         <div id='principal'>

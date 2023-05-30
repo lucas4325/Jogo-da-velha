@@ -70,15 +70,29 @@ button {
 }
 
 #placar {
-  width: 220px;
-  height: 150px;
-  background-color: rgb(218, 216, 216);
+  width: 250px;
+  height: 300px;
   position: absolute;
-  padding: 15px;
   margin-top: 50px;
   margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#placar1 {
+  width: 200px;
+  height: 150px;
+  background-color: rgb(218, 216, 216);
+  padding: 15px;
   font-size: 35px;
   text-align: center;
+}
+
+#placar button {
+  width: 180px;
+  font-size: 23px;
 }
 
 #placar div {
