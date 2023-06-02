@@ -61,33 +61,39 @@ function App() {
   
   return (
     <div className="App" ref={(ref) => divRef.current = ref}>
-      <div id='placar'>
-        <div id='placar1'>
-          Placar
-          <div>
-            XIS: {placar.xis}<br />
-            CIRCULO: {placar.circulo}
+      <div className='flexGrow-1'>
+        <div id='placar'>
+          <div id='placar1'>
+            Placar
+            <div>
+              XIS: {placar.xis}<br />
+              CIRCULO: {placar.circulo}
+            </div>
           </div>
+          <button onClick={()=>{setPlacar({xis:0, circulo: 0})}}>Resetar Placar</button>
         </div>
-        <button onClick={()=>{setPlacar({xis:0, circulo: 0})}}>Resetar Placar</button>
       </div>
       
-      <div id='alinhar'>
-        <div id='principal'>
-          {
-            lista.map((e,i):any=>{
-              return e.map((E,I)=>{
+      
+      <div className='flexGrow-2'>
+        <div id='alinhar'>
+          <div id='principal'>
+            {
+              lista.map((e,i):any=>{
                 return (
-                  <Quadrado key={`${i}:${I}`} id={`${i}:${I}`} clicked={(event:any)=>{clicked(event.id)}} nextPlayer={jogada} render={(player:any)=> <Player player={E}/> } />
-                  // <div key={`${i}:${I}`} id={`${i}:${I}`} onClick={(event)=>{clicked(event.currentTarget)}} className='quadrados' >
-                  //   { E === 1 ? <Xis/> : E === 4 ? <Circulo/> : undefined }
-                  // </div>
+                  <div key={`${i}`} id={`${i}`} className='linha'>
+                    {e.map((E,I)=>{
+                      return (
+                        <Quadrado key={`${i}:${I}`} id={`${i}:${I}`} clicked={(event:any)=>{clicked(event.id)}} nextPlayer={jogada} render={(player:any)=> <Player player={E}/> } />
+                      )
+                    })}
+                  </div>
                 )
               })
-            })
-          }
+            }
+          </div>
+          <button onClick={resetar}>Reiniciar</button>
         </div>
-        <button onClick={resetar}>Reiniciar</button>
       </div>
     </div>
   );
