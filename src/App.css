@@ -184,10 +184,42 @@ button {
 }
 
 @media (max-width: 550px) {
+  /* #alinharP {
+    width: 100%;
+  } */
+  
   #alinhar {
     height: 500px;
-    /* margin-top: 0px;
-    justify-content: space-between; */
+    width: 100%;
+    /* margin-top: 0px;*/
+    justify-content: stretch;
+  }
+
+  #alinhar button{
+    width: 90px;
+    font-size: 17px;
+    padding: 6px;
+    margin-top: 30px;
+  }
+
+  #placar {
+    width: 170px;
+    height: 230px;
+  }
+
+  #placar div {
+    font-size: 23px;
+  }
+
+  #placar1 {
+    width: 170px;
+    height: 100px;
+  }
+
+  #placar button {
+    width: 140px;
+    font-size: 17px;
+    padding: 6px;
   }
 
   .barraX{
