@@ -60,8 +60,8 @@ function App() {
   }
   
   return (
-    <div className="App" ref={(ref) => divRef.current = ref}>
-      <div className='flexGrow-1'>
+    <div  className="App" ref={(ref) => divRef.current = ref}>
+      <div id='placarP' className='flexGrow-1'>
         <div id='placar'>
           <div id='placar1'>
             Placar
@@ -74,8 +74,7 @@ function App() {
         </div>
       </div>
       
-      
-      <div className='flexGrow-2'>
+      <div id='alinharP' className='flexGrow-2'>
         <div id='alinhar'>
           <div id='principal'>
             {

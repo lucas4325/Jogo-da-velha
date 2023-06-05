@@ -1,7 +1,7 @@
 .App {
   width: 100%;
   height: 100%;
- display: flex;
+  display: flex;
 } 
 
 .flexGrow-0 {
@@ -22,7 +22,7 @@
 
 #alinhar{
   width: 606px;
-  height: 100%;
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -30,8 +30,8 @@
 }
 
 #principal {
-  width: 406px;
-  height: 406px;
+  width: 506px;
+  height: 506px;
   background-color: rgb(214, 214, 214);
 }
 
@@ -76,11 +76,7 @@ button {
   align-items: center;
 }
 
-.barraX{
-  width: 5%;
-  border: 2px solid black;
-  position: absolute;
-}
+
 
 .barraX1 {
   transform: rotate(45deg);
@@ -90,11 +86,17 @@ button {
   transform: rotate(-45deg);
 }
 
+#placarP {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 #placar {
   width: 250px;
   height: 300px;
   margin-top: 50px;
-  margin-left: 100px;
+  margin-left: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -119,4 +121,83 @@ button {
   margin-top: 10px;
   text-align: left;
   font-size: 30px;
+}
+
+@media (max-width: 1000px){
+  #alinhar {
+    width: 506px;
+    height: 700px;
+  }
+
+  .barraX{
+    width: 90px;
+    border: 2px solid black;
+    position: absolute;
+  }
+
+  #principal {
+    width: 406px;
+    height: 406px;
+  }
+
+  #placar {
+    margin-left: 20px;
+    width: 200px;
+    height: 250px;
+  }
+
+  #placar div {
+    font-size: 28px;
+  }
+
+  #placar1 {
+    width: 170px;
+    height: 120px;
+  }
+
+  #placar button {
+    width: 150px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 800px){
+  .App{
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #alinhar {
+    height: 500px;
+    margin-top: 0px;
+    justify-content: space-between;
+  }
+
+  #placar {
+    margin: 0px;
+  }
+
+  #alinharP {
+    flex-direction: column;
+    align-self: center ;
+  }
+}
+
+@media (max-width: 550px) {
+  #alinhar {
+    height: 500px;
+    /* margin-top: 0px;
+    justify-content: space-between; */
+  }
+
+  .barraX{
+    width: 65px;
+    border: 2px solid black;
+    position: absolute;
+  }
+
+  #principal {
+    width: 300px;
+    height: 300px;
+  }
 }
