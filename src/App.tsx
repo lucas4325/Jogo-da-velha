@@ -3,16 +3,19 @@ import Xis from './components/xis';
 import Circulo from './components/circulo';
 import Vencedor from './components/vencedor';
 import Quadrado from './components/quadrado'
+import Fogos from './components/fogos';
 import Swal, { SweetAlertOptions } from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import './App.css';
+import './styles/animations.css'
 
 const MySwal = withReactContent(Swal)
 
 function App() {
   const [ lista, setLista ] = useState<Array<Array<number>>>([[0,0,0],[0,0,0],[0,0,0]]) 
   const [ jogada, setJogada ] = useState<any>(undefined)
-  const [ bloquear, setBloquear] = useState(false)
+  const [ bloquear, setBloquear] = useState<boolean>(false)
+  const [ openFire, setOpenFire ] = useState<boolean>(false)
   const [ placar, setPlacar ] = useState({xis:0, circulo: 0})
   const reset = [[0,0,0],[0,0,0],[0,0,0]]
   const divRef = useRef<HTMLDivElement | null>(null)
@@ -60,7 +63,7 @@ function App() {
   }
   
   return (
-    <div  className="App" ref={(ref) => divRef.current = ref}>
+    <div key="App" className="App" ref={(ref) => divRef.current = ref}>
       <div id='placarP' className='flexGrow-1'>
         <div id='placar'>
           <div id='placar1'>
@@ -83,7 +86,7 @@ function App() {
                   <div key={`${i}`} id={`${i}`} className='linha'>
                     {e.map((E,I)=>{
                       return (
-                        <Quadrado key={`${i}:${I}`} id={`${i}:${I}`} clicked={(event:any)=>{clicked(event.id)}} nextPlayer={jogada} render={(player:any)=> <Player player={E}/> } />
+                        <Quadrado id={`${i}:${I}`} clicked={(event:any)=>{clicked(event.id)}} nextPlayer={jogada} render={(player:any)=> <Player player={E}/> } />
                       )
                     })}
                   </div>
@@ -94,6 +97,10 @@ function App() {
           <button onClick={resetar}>Reiniciar</button>
         </div>
       </div>
+
+      {true ? <Fogos/> : <>alternativo</>}
+      {/* <div className='fogos'><div/> */}
+      <button onClick={()=>{setOpenFire(true)}} style={{height: '50px', padding: '5px', marginTop: '500px',}}>fogo</button>
     </div>
   );
 }

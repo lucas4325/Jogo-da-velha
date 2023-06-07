@@ -76,7 +76,11 @@ button {
   align-items: center;
 }
 
-
+.barraX{
+  width: 120px;
+  border: 2px solid black;
+  position: absolute;
+}
 
 .barraX1 {
   transform: rotate(45deg);
@@ -121,6 +125,16 @@ button {
   margin-top: 10px;
   text-align: left;
   font-size: 30px;
+}
+
+#fireCanvas {
+  display: flex;
+}
+
+.pixel {
+  width: 4px;
+  height: 4px;
+  border: 0;
 }
 
 @media (max-width: 1000px){
@@ -189,7 +203,7 @@ button {
   } */
   
   #alinhar {
-    height: 500px;
+    height: 400px;
     width: 100%;
     /* margin-top: 0px;*/
     justify-content: stretch;
@@ -203,8 +217,8 @@ button {
   }
 
   #placar {
-    width: 170px;
-    height: 230px;
+    width: 200px;
+    height: 220px;
   }
 
   #placar div {
