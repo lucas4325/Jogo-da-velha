@@ -129,11 +129,14 @@ button {
 
 #fireCanvas {
   display: flex;
+  position: absolute;
+  top: 25%;
+  
 }
 
 .pixel {
-  width: 4px;
-  height: 4px;
+  width: 30px;
+  height: 30px;
   border: 0;
 }
 

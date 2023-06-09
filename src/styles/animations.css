@@ -7,8 +7,6 @@
   width: 10px;
   height: 10px;
   background-color: rgb(180, 20, 20);
-  animation-duration: 2s;
-  animation-name: fogos;
 }
 
 .firePixels {
@@ -29,13 +27,3 @@
   right: 2px;
   color: #999;
 }
-
-/* @keyframes fogos{
-  from {
-    margin-bottom: 0%;
-  }
-
-  to {
-    margin-bottom: 40%;
-  }
-} */

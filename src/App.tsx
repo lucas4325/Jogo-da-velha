@@ -95,12 +95,11 @@ function App() {
             }
           </div>
           <button onClick={resetar}>Reiniciar</button>
+          {/* {false ? <Fogos largura={1} altura={15}/> : <>alternativo</>} */}
         </div>
       </div>
 
-      {true ? <Fogos/> : <>alternativo</>}
-      {/* <div className='fogos'><div/> */}
-      <button onClick={()=>{setOpenFire(true)}} style={{height: '50px', padding: '5px', marginTop: '500px',}}>fogo</button>
+      {/* <button onClick={()=>{setOpenFire(!openFire)}} style={{height: '50px', padding: '5px', marginTop: '500px',}}>fogo</button> */}
     </div>
   );
 }
