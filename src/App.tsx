@@ -3,6 +3,7 @@ import React, { useRef, useState} from 'react';
 // import Circulo from './components/circulo';
 import Vencedor from './components/vencedor';
 import Quadrado from './components/quadrado'
+import robo from './scripts/robo'
 // import Fogos from './components/fogos';
 import Swal, { SweetAlertOptions } from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
@@ -45,6 +46,9 @@ function App() {
       setLista([...lista])
       vencedor()
     }
+    let retornoRobo = robo(lista)
+    console.log(retornoRobo);
+    
   }
 
   const resetar = ()=>{
