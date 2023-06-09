@@ -41,6 +41,11 @@
   height: 33.3%;
 }
 
+.imgQuadrado {
+  width: 100px;
+  height: 100px;
+}
+
 .quadrados {
   width: 33.3%;
   /* height: 200px; */

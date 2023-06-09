@@ -1,9 +1,9 @@
 import React, { useRef, useState} from 'react';
-import Xis from './components/xis';
-import Circulo from './components/circulo';
+// import Xis from './components/xis';
+// import Circulo from './components/circulo';
 import Vencedor from './components/vencedor';
 import Quadrado from './components/quadrado'
-import Fogos from './components/fogos';
+// import Fogos from './components/fogos';
 import Swal, { SweetAlertOptions } from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import './App.css';
@@ -15,7 +15,7 @@ function App() {
   const [ lista, setLista ] = useState<Array<Array<number>>>([[0,0,0],[0,0,0],[0,0,0]]) 
   const [ jogada, setJogada ] = useState<any>(undefined)
   const [ bloquear, setBloquear] = useState<boolean>(false)
-  const [ openFire, setOpenFire ] = useState<boolean>(false)
+  // const [ openFire, setOpenFire ] = useState<boolean>(false)
   const [ placar, setPlacar ] = useState({xis:0, circulo: 0})
   const reset = [[0,0,0],[0,0,0],[0,0,0]]
   const divRef = useRef<HTMLDivElement | null>(null)
@@ -57,8 +57,8 @@ function App() {
     const {player} = props
     let imgQuadrado:any = undefined
     
-    if(player === 1) imgQuadrado = <Xis/>
-    if(player === 4) imgQuadrado = <Circulo/>
+    if(player === 1) imgQuadrado = <img className='imgQuadrado' src="/xis.png" alt="" />
+    if(player === 4) imgQuadrado = <img className='imgQuadrado' src="/circulo.png" alt="" />
     return imgQuadrado
   }
   
